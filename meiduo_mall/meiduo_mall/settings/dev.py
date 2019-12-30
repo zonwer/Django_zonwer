@@ -16,7 +16,7 @@ import sys   #操作python模块
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0,os.path.join(BASE_DIR,'apps'))     #导入包的路径,系统从此处查找包
+sys.path.insert(0,os.path.join(BASE_DIR,'apps'))     #导入包的路径,系统从此处查找包,自己添加一个insert
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 完整的到包路径
-    'meiduo_mall.apps.users.apps.UsersConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +58,7 @@ ROOT_URLCONF = 'meiduo_mall.urls'
 TEMPLATES = [
     {
         # 'BACKEND': 'django.templates.backends.django.DjangoTemplates',
+
         # 将原先django的template模板替换为jinja2 的模板
         'BACKEND': 'django.templates.backends.jinja2.Jinja2',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
