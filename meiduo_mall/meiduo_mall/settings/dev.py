@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os    #操作系统模块,linux
 import sys   #操作python模块
-sys.path
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.insert(0,os.path.join(BASE_DIR,'apps'))     #导入包的路径,系统从此处查找包
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
