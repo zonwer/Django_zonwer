@@ -1,4 +1,7 @@
 from django.conf.urls import url
 from . import views
 
-urlpatterns =[]
+urlpatterns =[
+    url("^register$", views.RegisterView.as_view()),
+
+]
