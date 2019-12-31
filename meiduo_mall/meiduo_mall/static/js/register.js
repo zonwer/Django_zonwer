@@ -4,7 +4,7 @@ var vm = new Vue({
     delimiters: ['[[', ']]'],
     data: {
         host: host,
-        error_name: false,
+         : false,
         error_password: false,
         error_check_password: false,
         error_phone: false,

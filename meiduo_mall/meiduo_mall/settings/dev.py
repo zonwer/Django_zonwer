@@ -10,13 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os    #操作系统模块,linux
-import sys   #操作python模块
-
+import os  # 操作系统模块,linux
+import sys  # 操作python模块
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0,os.path.join(BASE_DIR,'apps'))     #导入包的路径,系统从此处查找包,自己添加一个insert
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))  # 导入包的路径,系统从此处查找包,自己添加一个insert
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -28,7 +27,6 @@ SECRET_KEY = '#)b7qzn*ooy@q3kl%#@hy@j0r*z&r4&u(6_b+=y!wwqe^qs1y5'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -55,30 +53,27 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'meiduo_mall.urls'
 
+# 将原先django的template模板替换为jinja2 的模板
 TEMPLATES = [
     {
         # 'BACKEND': 'django.templates.backends.django.DjangoTemplates',
-
-        # 将原先django的template模板替换为jinja2 的模板
-        'BACKEND': 'django.templates.backends.jinja2.Jinja2',
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',  # jinja2模板引擎
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.templates.context_processors.debug',
-                'django.templates.context_processors.request',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'environment':'meiduo_mall.utils.jinja2_env.jinja2_environment',
             # 补充Jinja2模板引擎环境
-
+            'environment': 'meiduo_mall.utils.jinja2_env.jinja2_environment',
         },
     },
 ]
 
 WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -88,16 +83,14 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
-
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '106.13.232.222',  # 数据库主机
         'PORT': 3306,  # 数据库端口
         'USER': 'itcast',  # 数据库用户名
         'PASSWORD': 'Zong199004@',  # 数据库用户密码
-        'NAME': 'meiduo_tdb39'  # 数据库名字
+        'NAME': 'meiduo_tbd39'  # 数据库名字meiduo_tbd39
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -117,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -131,7 +123,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -143,14 +134,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # 配置redis及缓存
 CACHES = {
-    "default": { # 默认
+    "default": {  # 默认
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://106.13.232.222:6379/0",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     },
-    "session": { # session
+    "session": {  # session
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://106.13.232.222:6379/1",
         "OPTIONS": {
@@ -162,7 +153,6 @@ CACHES = {
 # 指定session的保存方案
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
-
 
 # 日志文件的设置
 LOGGING = {
@@ -205,3 +195,6 @@ LOGGING = {
         },
     }
 }
+
+# 指定用户模型类
+AUTH_USER_MODEL = 'users.User'

@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="018e6cea-5bab-4d18-82a4-ad884071c599">
+        <schema name="meiduo_tbd39" object-types="table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="018e6cea-5bab-4d18-82a4-ad884071c599">
@@ -35,6 +39,13 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="018e6cea-5bab-4d18-82a4-ad884071c599" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="018e6cea-5bab-4d18-82a4-ad884071c599" dataset="meiduo_tbd39.users_user" active-filter-id="7a1e851f-06b2-4495-b183-f1111acfaf4f">
+      <filter id="7a1e851f-06b2-4495-b183-f1111acfaf4f" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
